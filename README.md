@@ -16,7 +16,7 @@
 
   </tr>
   <tr>
-    <td align="center"><a href="https://github.com/ymkdev"><b>고유진</b></td>
+    <td align="center"><a href="https://github.com/ymkdev"><b>고유민</b></td>
     <td align="center"style="border-right : 0.5px solid gray"><a href="https://github.com/janjinn" ><b>박경진</b></td>
     <td align="center"><a href="https://github.com/ShinHeeEul"><b>신희을</b></td>
     <td align="center"style="border-right : 0.5px solid gray"><a href="https://github.com/sdc05103" ><b>우채윤</b></td>
