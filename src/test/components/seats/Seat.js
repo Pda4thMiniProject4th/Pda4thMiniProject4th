@@ -8,6 +8,9 @@ const Seat = ({ size, occupied, number }) => {
     height: "35px",
     width: "35px",
     margin: "2px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   };
 
   return (
