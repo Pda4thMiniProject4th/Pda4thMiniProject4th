@@ -21,3 +21,4 @@ const Seat = ({ size, occupied, number }) => {
 };
 
 export default Seat;
+

@@ -4,7 +4,7 @@ import Seat from "./Seat";
 
 const SeatingRow = ({ seats, startNumber }) => {
   return (
-    <Row noGutters={true}>
+    <Row noGutters>
       {seats.map((seat, index) => (
         <Seat
           key={index}
