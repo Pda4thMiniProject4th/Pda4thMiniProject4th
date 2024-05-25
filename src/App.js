@@ -1,11 +1,11 @@
 // import logo from "./logo.svg";
 // import './App.css';
-import SeatingChart from "./test/components/seats/SeatingChart";
-
+//import SeatingChart from "./test/components/seats/SeatingChart";
+import Root from "./test/components/seats/Root";
 function App() {
   return (
     <div className="App">
-      <SeatingChart />
+      <Root />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
