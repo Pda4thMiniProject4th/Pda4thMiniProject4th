@@ -6,7 +6,7 @@ const Seat = ({ size, occupied, number }) => {
     backgroundColor: occupied ? "gray" : "silver",
     border: "1px solid black",
     height: "35px",
-    width: "35px",
+    width: "100px",
     margin: "2px",
     display: "flex",
     alignItems: "center",
@@ -21,4 +21,3 @@ const Seat = ({ size, occupied, number }) => {
 };
 
 export default Seat;
-
