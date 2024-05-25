@@ -2,7 +2,7 @@ import React from "react";
 import { Container } from "react-bootstrap";
 import SeatingRow from "./Row";
 
-const SeatingChart = () => {
+const SeatingChart_current = () => {
   const rows = 8; // 총 8개의 행
   const seatsPerRow = 6; // 각 행당 6개의 좌석
   const seatingPlan = [];
@@ -32,7 +32,7 @@ const SeatingChart = () => {
   );
 };
 
-export default SeatingChart;
+export default SeatingChart_current;
 
 // 나중에 api로 get요청 받아와서 좌석 띄울 예정
 // const SeatingChart = () => {
