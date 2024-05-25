@@ -1,13 +1,19 @@
 // import logo from "./logo.svg";
-// import './App.css';
+import "./App.css";
 //import SeatingChart from "./test/components/seats/SeatingChart";
 import Root from "./test/components/seats/Root";
 import Drawertest from "./test/components/myPage/Drawertest";
+import Notice from "./test/components/notices/Notice";
 
 function App() {
   return (
     <div className="App">
-      <Drawertest />
+      <div className="inline-components">
+        <Drawertest />
+        <div className="center-item">
+          <Notice />
+        </div>
+      </div>
       <Root />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
