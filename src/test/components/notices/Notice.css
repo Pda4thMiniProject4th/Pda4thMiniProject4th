@@ -1,0 +1,9 @@
+.notice-box {
+  border: 2px solid black; /* 테두리를 검은색으로 설정 */
+  padding: 20px; /* 안쪽 여백을 20px로 설정 */
+  margin: 20px; /* 바깥쪽 여백을 20px로 설정 */
+  width: 600px; /* 박스의 너비를 300px로 설정 */
+  text-align: center; /* 텍스트를 가운데 정렬 */
+  background-color: #f9f9f9; /* 배경색을 연한 회색으로 설정 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 박스 그림자 효과 */
+}
