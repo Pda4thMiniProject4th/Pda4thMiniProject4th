@@ -5,6 +5,7 @@ import Notice from "../notices/Notice";
 
 import "../../../App.css";
 import Root2 from "../seats/Root2";
+import Root3 from "../seats/Root3";
 
 export default function Mainpage() {
   return (
@@ -15,8 +16,9 @@ export default function Mainpage() {
           <Notice />
         </div>
       </div>
-      <Root2 />
-      <Root />
+      {/* <Root2 />
+      <Root /> */}
+      <Root3 />
     </div>
   );
 }
