@@ -8,9 +8,7 @@ import Mainpage from "./test/components/mainPage/Mainpage";
 import axios from "axios";
 import Root from "./test/components/seats/Root";
 import Drawertest from "./test/components/myPage/Drawertest";
-import Login from "./login/components/Login";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Redirect from "./login/components/Redirect";
+import LoginPage from "./login/components/LoginPage";
 //import OrderPage from "./order/oderPage";
 
 function App() {
@@ -21,14 +19,8 @@ function App() {
       <Drawertest />
       <Root />
       */}
+      <LoginPage />
 
-      <Router>
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/kakao/callback" element={<Redirect />} />
-          {/*<Route path="/order" element={<OrderPage />} />*/}
-        </Routes>
-      </Router>
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

@@ -25,7 +25,7 @@ const Redirect = () => {
           console.log(`로그인 성공: token is ${servertoken}`);
 
           //성공 시 기수 선택 페이지로 넘어감
-          //navigate("/order");
+          navigate("/order");
         })
         .catch((error) => {
           console.error("로그인 실패: ", error);
