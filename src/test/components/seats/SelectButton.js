@@ -12,7 +12,7 @@ const SelectButton = () => {
       const id = 2; //테스트
       let reason = ""; //테스트
 
-      if (selectedOption === -1) {
+      if (selectedOption === -2) {
         reason = inputText;
       }
       const response = await axios.post("/seats/live", {
@@ -29,7 +29,7 @@ const SelectButton = () => {
   const handleSelectChange = (e) => {
     const option = Number(e.target.value);
     setSelectedOption(option);
-    if (option === -1) {
+    if (option === -2) {
       setShowModal(true);
     } else {
       setShowModal(false);
@@ -47,7 +47,7 @@ const SelectButton = () => {
       >
         <option value={0}>랜덤</option>
         <option value={1}>앞자리</option>
-        <option value={-1}>뒷자리</option>
+        <option value={-2}>뒷자리</option>
       </Form.Select>
       <Button variant="info" onClick={fetchUserInfo}>
         확인
