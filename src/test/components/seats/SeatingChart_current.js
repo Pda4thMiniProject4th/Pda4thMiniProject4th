@@ -5,6 +5,7 @@ import SeatingRow from "./Row";
 
 const SeatingChart_current = () => {
   const [userNames, setUserNames] = useState([]); // 사용자 이름을 저장할 배열
+  const [loggedInUserId, setLoggedInUserId] = useState("2"); // ID: 2
   const rows = 8; // 총 8개의 행
   const seatsPerRow = 6; // 각 행당 6개의 좌석
 
@@ -36,7 +37,8 @@ const SeatingChart_current = () => {
   return (
     <Container>
       {seatingPlan.map((row, index) => (
-        <SeatingRow key={index} seats={row} />
+        <SeatingRow key={index} seats={row} loggedInUserId={loggedInUserId} />
+        //loggedInUserId={"2"}
       ))}
     </Container>
   );
