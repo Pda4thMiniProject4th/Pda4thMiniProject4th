@@ -23,13 +23,13 @@ const SeatingChart_current = () => {
     fetchUserNames(); // 함수 실행
   }, []);
 
-  const seats = Array.from({ length: 48 }, (_, index) => ({
+  const seats = Array.from({ length: 49 }, (_, index) => ({
     seatNumber: index + 1,
     userName: userNames[index] || "Empty",
   }));
 
   const seatingPlan = [];
-  for (let i = 0; i < seats.length; i += seatsPerRow) {
+  for (let i = 1; i < seats.length; i += seatsPerRow) {
     seatingPlan.push(seats.slice(i, i + seatsPerRow));
   }
 
