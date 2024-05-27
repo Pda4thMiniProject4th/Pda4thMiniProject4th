@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import Select from "./Select";
+// import Select from "./Select";
 import SelectButton from "./SelectButton";
 
 export default function Root2() {
@@ -15,7 +15,7 @@ export default function Root2() {
         <Col xs={8} sm={6} className="d-flex justify-content-center">
           <div style={{ display: "flex" }}>
             <h3>실시간 자리 현황</h3>
-            <Select />
+            {/* <Select /> */}
             <SelectButton />
           </div>
         </Col>
