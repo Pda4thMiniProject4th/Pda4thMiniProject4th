@@ -12,7 +12,7 @@ const SeatingChart_current = () => {
     // 서버에서 사용자 이름을 가져오는 함수
     const fetchUserNames = async () => {
       try {
-        const response = await axios.get("/seats/current"); // API 경로 수정 필요
+        const response = await axios.get("/seats/current/10"); // API 경로 수정 필요
         console.log(response.data);
         setUserNames(response.data); // 응답 데이터를 상태로 저장
       } catch (error) {
