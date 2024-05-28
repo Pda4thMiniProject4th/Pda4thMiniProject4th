@@ -3,16 +3,19 @@ import axios from "axios";
 import { Row } from "react-bootstrap";
 import Seat from "./Seat"; // 경로 확인 필요 (예: "./Seat")
 
-const SeatingRow = ({ seats }) => {
-  console.log(seats);
+const SeatingRow = ({ seats, userId, order }) => {
   const [loggedInUserId, setLoggedInUserId] = useState("");
   useEffect(() => {
     // 서버에서 사용자 이름을 가져오는 함수
     const fetchUserIds = async () => {
+      if (!order) {
+        return;
+      }
       try {
-        const response = await axios.get("/seats/10"); // API 경로 수정 필요
-        console.log(response);
-        setLoggedInUserId(response.data.userId);
+        //const response = await axios.get("/seats/10"); // API 경로 수정 필요
+        const response = await axios.get(`/seats/${order}`);
+        console.log("a", response);
+        setLoggedInUserId(response.data);
         // setLoggedInUserId("2");
       } catch (error) {
         console.error("Failed to fetch user names:", error); // 에러 처리
@@ -20,25 +23,31 @@ const SeatingRow = ({ seats }) => {
     };
 
     fetchUserIds(); // 함수 실행
-  }, []);
+  }, [order]);
 
   // 2번 유저인 친구가 필요해요. (현재는 없음.)
   // console.log(loggedInUserId);
+  console.log("------");
+  console.log(seats);
+  console.log(userId);
+  console.log(loggedInUserId);
+  console.log(loggedInUserId[userId]);
   return (
     <Row>
-      {seats.map((seat, index) => (
-        <Seat
-          key={index}
-          size={2} // Bootstrap grid 시스템에서 총 12열 중 2의 크기 (6개 좌석)
-          occupied={seat.userName !== "Empty"}
-          number={seat.userName} // 사용자 이름을 number prop으로 전달,
-          userId={seat.userId}
-          //아이디 일치 여부의 조건문
-          // isCurrentUser={}
-
-          isCurrentUser={seat.userId === loggedInUserId} // 현재 로그인한 사용자 ID와 비교
-        />
-      ))}
+      {seats.map((seat, index) => {
+        console.log("dffD", seat);
+        return (
+          <Seat
+            key={index}
+            size={2} // Bootstrap grid 시스템에서 총 12열 중 2의 크기 (6개 좌석)
+            occupied={seat.userName !== "Empty"}
+            number={seat.userName} // 사용자 이름을 number prop으로 전달,
+            userId={seat.userId}
+            //아이디 일치 여부의 조건문
+            isCurrentUser={loggedInUserId[userId] === seat.seatNumber} // 현재 로그인한 사용자 ID와 비교
+          />
+        );
+      })}
     </Row>
   );
 };

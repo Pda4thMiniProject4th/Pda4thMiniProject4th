@@ -2,27 +2,29 @@ import axios from "axios";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const SelectButton = ({ onDataFetched }) => {
+const SelectButton = ({ onDataFetched, userId, order }) => {
   const [selectedOption, setSelectedOption] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [inputText, setInputText] = useState("");
 
   const fetchUserInfo = async () => {
     try {
-      const id = 106; //테스트
+      //const id = 106; //테스트
       let reason = ""; //테스트
 
       if (selectedOption === -2) {
         reason = inputText;
       }
       const response = await axios.post("/seats/live", {
-        id,
+        //id,
+        id: userId,
         seat_option: selectedOption,
         reason,
       });
       console.log(response.data);
       if (response.data) {
-        const response2 = await axios.get("/users/3");
+        //const response2 = await axios.get("/users/3");
+        const response2 = await axios.get(`/users/${order}`);
         if (response2.data) {
           const fetchedData = response2.data;
           onDataFetched(fetchedData);

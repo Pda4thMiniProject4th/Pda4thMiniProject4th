@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Notice.css";
 
-function Notice() {
+function Notice({ order }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
     const fetchRearrangeAt = async () => {
       try {
-        const response = await axios.get("/notice/mainpage/3"); // ordersValue가 3인 예시
+        // const response = await axios.get("/notice/mainpage/3"); // ordersValue가 3인 예시
+        const response = await axios.get(`/notice/mainpage/${order}`);
         if (response.data) {
           const date = new Date(response.data.rearrange_at);
           const formattedDate = `${date.getFullYear()}년 ${
