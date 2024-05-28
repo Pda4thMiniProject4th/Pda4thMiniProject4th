@@ -4,7 +4,7 @@ import Seat from "./Seat"; // 경로 확인 필요 (예: "./Seat")
 
 const SeatingRow = ({ seats }) => {
   return (
-    <Row noGutters>
+    <Row>
       {seats.map((seat, index) => (
         <Seat
           key={index}
