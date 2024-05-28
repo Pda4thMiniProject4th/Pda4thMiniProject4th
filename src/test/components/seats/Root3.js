@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import SeatingChart_current from "./SeatingChart_current";
 import SeatingChart_live from "./SeatingChart_live";
 import SelectButton from "./SelectButton";
 
 export default function Root3() {
+  const [countData, setCountData] = useState([]);
   return (
     <div style={{ display: "flex" }}>
       <div>
@@ -14,9 +15,9 @@ export default function Root3() {
       <div>
         <div style={{ display: "flex" }}>
           <h3>실시간 자리 현황</h3>
-          <SelectButton />
+          <SelectButton onDataFetched={setCountData} />
         </div>
-        <SeatingChart_live />
+        <SeatingChart_live countData={countData} />
       </div>
     </div>
   );

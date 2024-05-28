@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import SeatingRow2 from "./Row2";
 import axios from "axios";
-const SeatingChart_live = () => {
+const SeatingChart_live = ({ countData }) => {
   const rows = 8; // 총 8개의 행
   const seatsPerRow = 6; // 각 행당 6개의 좌석
   // const seatingPlan = [];
@@ -28,6 +28,10 @@ const SeatingChart_live = () => {
 
     fetchCount(); // 함수 실행
   }, []);
+
+  useEffect(() => {
+    initializeSeating(countData.frontCount, countData.backCount);
+  }, [countData]);
 
   const initializeSeating = (frontCount, backCount) => {
     const newSeatingPlan = Array.from({ length: rows }, () =>
