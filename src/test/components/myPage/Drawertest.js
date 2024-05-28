@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 import axios from "axios";
 import "./Mypage.css";
 
-export default function Drawertest() {
+export default function Drawertest({ userId }) {
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState("");
   const [userprofile, setUserProfile] = useState("");
@@ -12,7 +12,8 @@ export default function Drawertest() {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get("/mypage/106"); // idValue가 2인 예시
+      // const response = await axios.get("/mypage/106"); // idValue가 2인 예시
+      const response = await axios.get(`/mypage/${userId}`);
       if (response.data) {
         const { name, profile, seat_option } = response.data;
         setUserName(name);
