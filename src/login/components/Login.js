@@ -12,15 +12,19 @@ const Login = () => {
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
+        flexDirection: "column",
         gap: 70,
+        minHeight: "50rem",
       }}
     >
-      <img src="shitdownlogo.jpg" alt="팀로고" style={{ width: 500 }} />
-      <img src="kakaologinbtn.png" alt="로그인버튼" onClick={handleLogin} />
-
+      <div>
+        <img src="shitdownlogo.jpg" alt="팀로고" style={{ width: 500 }} />
+      </div>
+      <div>
+        <img src="kakaologinbtn.png" alt="로그인버튼" onClick={handleLogin} />
+      </div>
       {/*<button onClick={handleLogin}>카카오 로그인</button>*/}
     </div>
   );

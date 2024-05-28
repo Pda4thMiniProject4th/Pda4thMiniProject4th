@@ -20,12 +20,12 @@ const Redirect = () => {
         })
         .then((response) => {
           //토큰을 받아와서 로컬스토리지에 저장
-          const servertoken = response.data.token;
-          localStorage.setItem("login_token", response.data.token);
-          console.log(`로그인 성공: token is ${servertoken}`);
+          const usrName = response.data.nickname;
+          //localStorage.setItem("login_token", response.data.token);
+          console.log(`로그인 성공: 닉네임은  ${usrName}`);
 
           //성공 시 기수 선택 페이지로 넘어감
-          navigate("/order");
+          navigate("/order", { nickname: usrName });
         })
         .catch((error) => {
           console.error("로그인 실패: ", error);
