@@ -14,6 +14,7 @@ const SeatingChart_current = () => {
     const fetchUserNames = async () => {
       try {
         const response = await axios.get("/seats/current/10"); // API 경로 수정 필요
+
         console.log(response.data);
         setUserNames(response.data); // 응답 데이터를 상태로 저장
       } catch (error) {
