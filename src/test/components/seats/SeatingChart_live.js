@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
-import SeatingRow from "./Row";
+import SeatingRow2 from "./Row2";
 import axios from "axios";
 const SeatingChart_live = () => {
   const rows = 8; // 총 8개의 행
@@ -101,7 +101,7 @@ const SeatingChart_live = () => {
   return (
     <Container>
       {seatingPlan.map((row, index) => (
-        <SeatingRow
+        <SeatingRow2
           key={index}
           seats={row}
           // startNumber={index * seatsPerRow + 1}
