@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
+import { grey } from "@mui/material/colors";
 
 export default function OrderPage() {
   const location = useLocation();
@@ -11,6 +13,23 @@ export default function OrderPage() {
     const newInfo = [...info];
     newInfo[1] = ordernum;
     setInfo(newInfo);
+  };
+
+  const sendInfo = async () => {
+    try {
+      await axios
+        .post(`/users/check`, {
+          data: info,
+        })
+        .then(() => {
+          console.log("닉네임+기수 전달 성공");
+        })
+        .catch((error) => {
+          console.error("전달 실패: ", error);
+        });
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -32,9 +51,10 @@ export default function OrderPage() {
             setInfo(newInfo);
           }}
         >
-          완료
+          입력완료
         </button>
         <p>실명이 아니라면 성과 이름을 작성해주세요.</p>
+        <p style={{ color: "gray" }}>입력 후 완료 버튼 꼭 눌러주세요!</p>
       </div>
 
       <div style={{ display: "flex", gap: 50 }}>
@@ -53,6 +73,13 @@ export default function OrderPage() {
           4기
         </button>
       </div>
+      <button
+        onClick={() => {
+          sendInfo();
+        }}
+      >
+        전달
+      </button>
     </div>
   );
 }
