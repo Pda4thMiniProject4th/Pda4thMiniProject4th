@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import axios from "axios";
@@ -12,7 +12,6 @@ export default function Drawertest({ userId }) {
 
   const fetchUserInfo = async () => {
     try {
-      // const response = await axios.get("/mypage/106"); // idValue가 2인 예시
       const response = await axios.get(`/mypage/${userId}`);
       if (response.data) {
         const { name, profile, seat_option } = response.data;
