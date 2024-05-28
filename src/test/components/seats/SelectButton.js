@@ -9,7 +9,7 @@ const SelectButton = ({ onDataFetched }) => {
 
   const fetchUserInfo = async () => {
     try {
-      const id = 2; //테스트
+      const id = 106; //테스트
       let reason = ""; //테스트
 
       if (selectedOption === -2) {
@@ -22,7 +22,7 @@ const SelectButton = ({ onDataFetched }) => {
       });
       console.log(response.data);
       if (response.data) {
-        const response2 = await axios.get("/users/10");
+        const response2 = await axios.get("/users/3");
         if (response2.data) {
           const fetchedData = response2.data;
           onDataFetched(fetchedData);

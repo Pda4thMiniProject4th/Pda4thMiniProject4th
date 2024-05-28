@@ -12,7 +12,7 @@ export default function Drawertest() {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get("/mypage/2"); // idValue가 2인 예시
+      const response = await axios.get("/mypage/106"); // idValue가 2인 예시
       if (response.data) {
         const { name, profile, seat_option } = response.data;
         setUserName(name);
