@@ -2,7 +2,7 @@ import axios from "axios";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useState } from "react";
 
-const SelectButton = () => {
+const SelectButton = ({ onDataFetched }) => {
   const [selectedOption, setSelectedOption] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const [inputText, setInputText] = useState("");
@@ -21,6 +21,13 @@ const SelectButton = () => {
         reason,
       });
       console.log(response.data);
+      if (response.data) {
+        const response2 = await axios.get("/users/10");
+        if (response2.data) {
+          const fetchedData = response2.data;
+          onDataFetched(fetchedData);
+        }
+      }
     } catch (error) {
       console.error(error);
     }
