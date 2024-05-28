@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,15 @@
   to {
     transform: rotate(360deg);
   }
+} */
+.inline-components {
+  display: flex;
+  justify-content: space-between; /* 양쪽 끝으로 요소들을 밀어냅니다 */
+  width: 100%; /* 전체 너비를 사용합니다 */
+}
+
+.center-item {
+  display: flex;
+  justify-content: center;
+  flex: 1; /* 남은 공간을 모두 차지하도록 설정 */
 }

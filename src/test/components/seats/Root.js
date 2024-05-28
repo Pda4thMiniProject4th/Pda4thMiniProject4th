@@ -9,13 +9,11 @@ export default function Root() {
       <Row>
         <Col xs={12} sm={6} className="d-flex justify-content-center">
           <div>
-            <h3>&nbsp;&nbsp;&nbsp;&nbsp;현재 자리</h3>
             <SeatingChart_current />
           </div>
         </Col>
         <Col xs={12} sm={6} className="d-flex justify-content-center">
           <div>
-            <h3>실시간 자리 현황</h3>
             <SeatingChart_live />
           </div>
         </Col>
