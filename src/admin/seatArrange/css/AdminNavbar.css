@@ -1,0 +1,12 @@
+.navbar {
+  background-color: #c1e5fa;
+  color: black;
+}
+
+.navLink {
+  font-family: "Roboto", sans-serif;
+  font-weight: 900 !important;
+  font-style: bold !important;
+
+  margin-right: 1rem;
+}

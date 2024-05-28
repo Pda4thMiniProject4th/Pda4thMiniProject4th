@@ -25,7 +25,7 @@ const SeatingRow = ({ seats }) => {
   // 2번 유저인 친구가 필요해요. (현재는 없음.)
   // console.log(loggedInUserId);
   return (
-    <Row noGutters>
+    <Row>
       {seats.map((seat, index) => (
         <Seat
           key={index}
