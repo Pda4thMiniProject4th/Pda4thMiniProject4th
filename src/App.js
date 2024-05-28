@@ -19,8 +19,8 @@ function App() {
       <Drawertest />
       <Root />
       */}
-      {/* <LoginPage /> */}
-      <Mainpage />
+      <LoginPage />
+      {/*<Mainpage />*/}
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>

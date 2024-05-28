@@ -19,7 +19,7 @@ const Redirect = () => {
           code: code,
         })
         .then((response) => {
-          //토큰을 받아와서 로컬스토리지에 저장
+          //닉네임을 받아와서 로컬스토리지에 저장
           const usrName = response.data.nickname;
           //localStorage.setItem("login_token", response.data.token);
           console.log(`로그인 성공 redirect 페이지: 닉네임은  ${usrName}`);

@@ -21,8 +21,17 @@ export default function OrderPage() {
         .post(`/users/check`, {
           data: info,
         })
-        .then(() => {
+        .then((response) => {
           console.log("닉네임+기수 전달 성공");
+
+          //true이면 jwt 토큰 발급, false이면 로그아웃
+          const result = response.data.result;
+
+          if (result) {
+            //토큰 발급 및 메인 페이지로
+          } else {
+            //로그아웃 및 시작페이지로
+          }
         })
         .catch((error) => {
           console.error("전달 실패: ", error);
