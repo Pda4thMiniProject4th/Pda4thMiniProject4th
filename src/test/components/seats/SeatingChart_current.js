@@ -5,7 +5,7 @@ import SeatingRow from "./Row";
 
 const SeatingChart_current = () => {
   const [userNames, setUserNames] = useState([]); // 사용자 이름을 저장할 배열
-  const [loggedInUserId, setLoggedInUserId] = useState("2"); // ID: 2
+  // const [loggedInUserId, setLoggedInUserId] = useState("2"); // ID: 2
   const rows = 8; // 총 8개의 행
   const seatsPerRow = 6; // 각 행당 6개의 좌석
 
@@ -14,7 +14,7 @@ const SeatingChart_current = () => {
     const fetchUserNames = async () => {
       try {
         const response = await axios.get("/seats/current/10"); // API 경로 수정 필요
-        console.log(response.data);
+        // console.log(response);
         setUserNames(response.data); // 응답 데이터를 상태로 저장
       } catch (error) {
         console.error("Failed to fetch user names:", error); // 에러 처리
@@ -37,8 +37,7 @@ const SeatingChart_current = () => {
   return (
     <Container>
       {seatingPlan.map((row, index) => (
-        <SeatingRow key={index} seats={row} loggedInUserId={loggedInUserId} />
-        //loggedInUserId={"2"}
+        <SeatingRow key={index} seats={row} />
       ))}
     </Container>
   );
