@@ -1,7 +1,7 @@
 import React from "react";
-import { Col } from "react-bootstrap";
+import "./Seat.css";
 
-const Seat = ({ size, occupied, number }) => {
+const Seat = ({ size, occupied, number, isCurrentUser = false }) => {
   const seatStyle = {
     backgroundColor: occupied ? "gray" : "silver",
     border: "1px solid black",
@@ -13,10 +13,16 @@ const Seat = ({ size, occupied, number }) => {
     justifyContent: "center",
   };
 
+  console.log(isCurrentUser);
+
   return (
-    <Col style={seatStyle} xs={size}>
+    <div
+      style={seatStyle}
+      xs={size}
+      className={`seat ${isCurrentUser && "active"}`}
+    >
       {number}
-    </Col>
+    </div>
   );
 };
 

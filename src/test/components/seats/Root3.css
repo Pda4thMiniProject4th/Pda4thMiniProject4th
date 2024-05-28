@@ -1,0 +1,23 @@
+.seat-current-live {
+  margin-left: 70px;
+  margin-right: 70px;
+  justify-content: space-between; /* 양쪽 끝으로 요소들을 밀어냅니다 */
+  /* width: 100%; 전체 너비를 사용합니다 */
+}
+
+.live-set {
+}
+
+.live-title {
+  width: 400px;
+  height: 50px;
+  margin-bottom: 50px;
+  background-color: #c1e5fa;
+  justify-content: center; /*양옆*/
+  align-items: center; /*위아래*/
+  border-radius: 10px 10px 10px 10px;
+}
+
+.live-seat {
+  /* background-color: #c1e5fa; */
+}

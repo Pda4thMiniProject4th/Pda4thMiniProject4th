@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import "./Mypage.css";
 
-export default function Drawertest() {
+export default function Drawertest({ userId }) {
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState("");
   const [userprofile, setUserProfile] = useState("");
@@ -11,7 +12,8 @@ export default function Drawertest() {
 
   const fetchUserInfo = async () => {
     try {
-      const response = await axios.get("/mypage/2"); // idValue가 2인 예시
+      // const response = await axios.get("/mypage/106"); // idValue가 2인 예시
+      const response = await axios.get(`/mypage/${userId}`);
       if (response.data) {
         const { name, profile, seat_option } = response.data;
         setUserName(name);
@@ -49,10 +51,22 @@ export default function Drawertest() {
           onClick={toggleDrawer(false)}
           onKeyDown={toggleDrawer(false)}
         >
-          <p>프로필: {userprofile}</p>
-          <p>이름: {userName}</p>
-          <p>선택한 자리: {seatOption}</p>
-          <p>로그아웃</p>
+          <div className="mypage">
+            <div style={{ display: "flex" }} className="info">
+              <div className="profile">
+                <p>
+                  <img src={userprofile} alt="프로필" />
+                </p>
+              </div>
+              <div className="name-selected">
+                <p>이름: {userName}</p>
+                <p>선택한 자리: {seatOption}</p>
+              </div>
+            </div>
+          </div>
+          <div className="logout">
+            <p>로그아웃</p>
+          </div>
         </div>
       </Drawer>
     </div>
