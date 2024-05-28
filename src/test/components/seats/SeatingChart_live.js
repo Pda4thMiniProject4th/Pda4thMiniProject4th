@@ -3,8 +3,8 @@ import { Container } from "react-bootstrap";
 import SeatingRow2 from "./Row2";
 import axios from "axios";
 const SeatingChart_live = ({ countData, userId, order }) => {
-  const rows = 8; // 총 8개의 행
-  const seatsPerRow = 6; // 각 행당 6개의 좌석
+  const rows = 6; // 총 8개의 행
+  const seatsPerRow = 8; // 각 행당 6개의 좌석
   // const seatingPlan = [];
   const [frontCount, setFrontCount] = useState(0);
   const [backCount, setBackCount] = useState(0);
