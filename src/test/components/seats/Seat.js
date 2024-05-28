@@ -1,7 +1,7 @@
 import React from "react";
 import "./Seat.css";
 
-const Seat = ({ size, occupied, number, isCurrentUser = false }) => {
+const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
   const seatStyle = {
     backgroundColor: occupied ? "gray" : "silver",
     border: "1px solid black",
@@ -13,15 +13,13 @@ const Seat = ({ size, occupied, number, isCurrentUser = false }) => {
     justifyContent: "center",
   };
 
-  console.log(isCurrentUser);
-
   return (
     <div
       style={seatStyle}
       xs={size}
       className={`seat ${isCurrentUser && "active"}`}
     >
-      {number}
+      {name}
     </div>
   );
 };

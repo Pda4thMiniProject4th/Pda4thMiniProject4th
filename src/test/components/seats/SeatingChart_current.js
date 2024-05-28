@@ -4,29 +4,25 @@ import { Container } from "react-bootstrap";
 import SeatingRow from "./Row";
 
 const SeatingChart_current = ({ userId, order }) => {
-  const [userNames, setUserNames] = useState([]); // 사용자 이름을 저장할 배열
-  // const [loggedInUserId, setLoggedInUserId] = useState("2"); // ID: 2
-  const rows = 8; // 총 8개의 행
-  const seatsPerRow = 6; // 각 행당 6개의 좌석
+  const [userNames, setUserNames] = useState([]);
+  const seatsPerRow = 6;
 
   useEffect(() => {
-    // 서버에서 사용자 이름을 가져오는 함수
     const fetchUserNames = async () => {
       try {
-        //const response = await axios.get("/seats/current/10"); // API 경로 수정 필요
         const response = await axios.get(`/seats/current/${order}`);
-        setUserNames(response.data); // 응답 데이터를 상태로 저장
+        setUserNames(response.data);
       } catch (error) {
-        console.error("Failed to fetch user names:", error); // 에러 처리
+        console.error("Failed to fetch user names:", error);
       }
     };
 
-    fetchUserNames(); // 함수 실행
+    fetchUserNames();
   }, []);
 
-  const seats = Array.from({ length: 49 }, (_, index) => ({
+  const seats = Array.from({ length: 48 }, (_, index) => ({
     seatNumber: index + 1,
-    userName: userNames[index] || "Empty",
+    userName: userNames[index + 1] || "Empty",
   }));
 
   const seatingPlan = [];
