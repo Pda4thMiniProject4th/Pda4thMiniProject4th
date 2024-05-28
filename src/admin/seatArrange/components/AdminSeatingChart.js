@@ -9,8 +9,9 @@ export default function AdminSeatingChart({
   orders,
   setOrders,
   maxSeat,
+  setUserNames,
+  userNames,
 }) {
-  const [userNames, setUserNames] = useState([]); // 사용자 이름을 저장할 배열
   const rows = 8; // 총 8개의 행
   const seatsPerRow = 6; // 각 행당 6개의 좌석
 
@@ -30,13 +31,14 @@ export default function AdminSeatingChart({
     fetchUserNames(); // 함수 실행
   }, [orders]);
 
-  const seats = Array.from({ length: maxSeat }, (_, index) => ({
-    seatNumber: index + 1,
+  console.log(userNames);
+  const seats = Array.from({ length: 48 }, (_, index) => ({
+    seatNumber: index,
     userName: userNames[index] || "Empty",
   }));
 
   const seatingPlan = [];
-  for (let i = 0; i < seats.length; i += seatsPerRow) {
+  for (let i = 1; i < seats.length; i += seatsPerRow) {
     seatingPlan.push(seats.slice(i, i + seatsPerRow));
   }
 

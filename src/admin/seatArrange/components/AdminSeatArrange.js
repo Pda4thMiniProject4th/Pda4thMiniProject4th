@@ -7,6 +7,7 @@ import AdminSeatingChart from "./AdminSeatingChart";
 
 export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
   const [max_seat, setMaxSeat] = useState(48);
+  const [userNames, setUserNames] = useState({}); // 사용자 이름을 저장할 객체
 
   return (
     <Container className="adminSeatArrange">
@@ -30,6 +31,12 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
                   prohibit_seat,
                   max_seat,
                 });
+                let newName = answer.data.body.user_seat.reduce((acc, e) => {
+                  acc[e.seatNumber] = e.userName;
+                  return acc;
+                }, {});
+                console.log("fdd", newName);
+                setUserNames(newName);
                 console.log(answer);
               } catch (err) {
                 console.log(err);
@@ -38,7 +45,7 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
             }}
           >
             시작
-          </Button>{" "}
+          </Button>
         </Col>
       </Row>
 
@@ -56,8 +63,10 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
               setMeta={setMeta}
               orders={orders}
               setOrders={setOrders}
+              userNames={userNames}
+              setUserNames={setUserNames}
               maxSeat={max_seat}
-            ></AdminSeatingChart>
+            />
           </div>
         </Col>
       </Row>
