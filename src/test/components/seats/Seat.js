@@ -12,7 +12,9 @@ const Seat = ({ size, occupied, number, isCurrentUser = false }) => {
     alignItems: "center",
     justifyContent: "center",
   };
+
   console.log(isCurrentUser);
+
   return (
     <div
       style={seatStyle}
