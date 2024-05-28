@@ -1,9 +1,9 @@
 import React from "react";
-import "./Seat.css";
+//import "./Seat.css";
 
-const Seat2 = ({ size, occupied, number }) => {
+const Seat2 = ({ size, occupied, isSelected }) => {
   const seatStyle = {
-    backgroundColor: occupied ? "gray" : "silver",
+    backgroundColor: occupied ? "grey" : "silver",
     border: "1px solid black",
     height: "35px",
     width: "100px",
@@ -14,7 +14,7 @@ const Seat2 = ({ size, occupied, number }) => {
   };
   return (
     <div style={seatStyle} xs={size}>
-      {number}
+      {isSelected}
     </div>
   );
 };
