@@ -6,7 +6,7 @@ const SeatingRow = ({ seats, loggedInUserId }) => {
   console.log(seats);
   console.log(loggedInUserId);
   return (
-    <Row noGutters>
+    <Row>
       {seats.map((seat, index) => (
         <Seat
           key={index}

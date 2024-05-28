@@ -1,0 +1,19 @@
+.adminNotice {
+  margin: 3rem;
+  background-color: #feebfe;
+  padding: 3rem;
+  min-width: 300px;
+}
+
+.title {
+  margin-left: 1rem;
+}
+.formSelect {
+  width: 10rem !important;
+  margin: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+}

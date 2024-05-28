@@ -1,0 +1,10 @@
+.title {
+  display: flex;
+  flex-direction: row;
+}
+
+.adminSeatArrange {
+  margin: 3rem;
+  padding: 3rem;
+  min-width: 300px;
+}
