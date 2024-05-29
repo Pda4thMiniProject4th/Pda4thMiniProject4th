@@ -5,10 +5,14 @@ import Notice from "../notices/Notice";
 import "./Mainpage.css";
 import Root2 from "../seats/Root2";
 import Root3 from "../seats/Root3";
+import { useLocation } from "react-router-dom";
 
 export default function Mainpage() {
-  const [userId, setUserId] = useState(106);
+  const location = useLocation();
+  const [userId, setUserId] = useState(location.state?.userId);
   const [order, setOrder] = useState(3);
+
+  console.log("resr", userId);
   return (
     <div className="home">
       {/* <div className="inline-components"> */}

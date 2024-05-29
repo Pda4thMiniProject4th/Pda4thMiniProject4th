@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { grey } from "@mui/material/colors";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function OrderPage() {
   const location = useLocation();
   const nickname = location.state?.nickname;
   const [name, setName] = useState(nickname);
   const [info, setInfo] = useState([nickname, 4]);
+  const navigate = useNavigate();
 
   const handleOrder = (ordernum) => {
     const newInfo = [...info];
@@ -25,10 +26,17 @@ export default function OrderPage() {
           console.log("닉네임+기수 전달 성공");
 
           //true이면 jwt 토큰 발급, false이면 로그아웃
-          const result = response.data.result;
 
+          const result = response.data.result;
+          const userId = response.data.userId;
+          console.log(result);
           if (result) {
             //토큰 발급 및 메인 페이지로
+            if (userId == 2) {
+              navigate("/adminpage");
+            } else {
+              navigate("/mainpage", { state: { userId: userId } });
+            }
           } else {
             //로그아웃 및 시작페이지로
           }
