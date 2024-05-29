@@ -9,6 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
 
+    env:
+      CI: false  # CI 환경 변수를 false로 설정합니다.
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
