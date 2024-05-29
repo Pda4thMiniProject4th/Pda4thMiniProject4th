@@ -16,7 +16,7 @@ function Notice({ order }) {
           const formattedDate = `${date.getFullYear()}년 ${
             date.getMonth() + 1
           }월 ${date.getDate()}일`;
-          setMessage(`${formattedDate}까지 자리 선택 하세요.`);
+          setMessage(`${formattedDate}까지 자리 선택하세요.`);
         } else {
           setMessage("");
         }

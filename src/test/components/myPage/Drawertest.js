@@ -16,6 +16,7 @@ export default function Drawertest({ userId }) {
   const fetchUserInfo = async () => {
     try {
       const response = await axios.get(`/mypage/${userId}`);
+
       if (response.data) {
         const { name, profile, seat_option } = response.data;
         setUserName(name);
@@ -46,8 +47,11 @@ export default function Drawertest({ userId }) {
   return (
     <div>
       <Navbar className="navbar-expand-custom">
-        <Button onClick={toggleDrawer(true)} style={{ margin: "10px" }}>
-          마이페이지
+        <Button
+          onClick={toggleDrawer(true)}
+          style={{ margin: "10px", fontFamily: "MangoDdobak-B" }}
+        >
+          My Page
         </Button>
         <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
           {/* Drawer 내부에 들어갈 내용 */}
