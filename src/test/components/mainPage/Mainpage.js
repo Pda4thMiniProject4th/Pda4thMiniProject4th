@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Root from "../seats/Root";
 import Drawertest from "../myPage/Drawertest";
 import Notice from "../notices/Notice";
@@ -6,11 +6,26 @@ import "./Mainpage.css";
 import Root2 from "../seats/Root2";
 import Root3 from "../seats/Root3";
 import { useLocation } from "react-router-dom";
+import axios from "axios";
 
 export default function Mainpage() {
   const location = useLocation();
   const [userId, setUserId] = useState(location.state?.userId);
-  const [order, setOrder] = useState(4);
+  const [order, setOrder] = useState(0);
+
+  useEffect(() => {
+    const fetchUserOrder = async () => {
+      try {
+        const response = await axios.get(`/users/mainpage/${userId}`);
+        const orders = response.data.orders;
+        setOrder(orders);
+      } catch (error) {
+        console.error("Failed to fetch order:", error);
+      }
+    };
+
+    fetchUserOrder();
+  }, [userId]);
 
   console.log("resr", userId);
   return (

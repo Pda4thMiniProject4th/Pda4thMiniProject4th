@@ -25,6 +25,7 @@ const SelectButton = ({ onDataFetched, userId, order }) => {
       if (response.data) {
         //const response2 = await axios.get("/users/3");
         const response2 = await axios.get(`/users/${order}`);
+        console.log("aaa", order);
         if (response2.data) {
           const fetchedData = response2.data;
           onDataFetched(fetchedData);
