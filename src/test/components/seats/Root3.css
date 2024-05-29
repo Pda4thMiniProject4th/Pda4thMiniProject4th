@@ -45,6 +45,16 @@
   align-items: center;
   margin-top: 20px;
   margin-bottom: 20px;
+  min-width: 600px;
+  position: relative;
+}
+.live-title > div:nth-child(1) {
+  position: absolute;
+  left: 35%;
+}
+.live-title > div:nth-child(2) {
+  position: absolute;
+  right: 0;
 }
 
 .live-seat {
