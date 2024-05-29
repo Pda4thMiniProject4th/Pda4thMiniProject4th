@@ -1,11 +1,38 @@
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  let result = false;
+  let userId = -100;
+
+  axios
+    .post(`/verifytoken`, {
+      token: localStorage.getItem("token"),
+    })
+    .then((response) => {
+      result = response.data.result;
+      if (result) {
+        //토큰이 유효할 경우
+        userId = response.data.userId;
+        console.log("jwt 토큰이 유효함! ", userId);
+      }
+    })
+    .catch((error) => {
+      console.error("토큰 유효 인증 실패: ", error);
+    });
+
   const handleLogin = () => {
-    window.location.href = KAKAO_AUTH_URL;
-    console.log("click button");
+    if (result) {
+      navigate("/mainpage", { state: { userId: userId } });
+    } else {
+      window.location.href = KAKAO_AUTH_URL;
+    }
   };
 
   return (

@@ -31,9 +31,22 @@ export default function OrderPage() {
           const userId = response.data.userId;
           const userAdmin = response.data.userAdmin;
 
-          console.log(result);
           if (result) {
             //토큰 발급 및 메인 페이지로
+            console.log("userId는 ", userId);
+            axios
+              .post(`/creattoken`, {
+                userId,
+              })
+              .then((response) => {
+                const jwttoken = response.data.token;
+                console.log("jwt토큰은 ", jwttoken);
+                localStorage.setItem("token", jwttoken);
+              })
+              .catch((error) => {
+                console.log("토큰 발급 페이지에 접근 불가 : ", error);
+              });
+
             if (userAdmin) {
               navigate("/adminpage");
             } else {
