@@ -11,11 +11,10 @@ export default function Mainpage() {
   const [order, setOrder] = useState(3);
   return (
     <div className="home">
-      <div className="inline-components">
-        <Drawertest userId={userId} /> {/*id*/}
-        <div className="center-item">
-          <Notice order={order} /> {/*기수*/}
-        </div>
+      {/* <div className="inline-components"> */}
+      <Drawertest userId={userId} /> {/*id*/}
+      <div className="center-item">
+        <Notice order={order} /> {/*기수*/}
       </div>
       {/* <Root2 />
       <Root /> */}
