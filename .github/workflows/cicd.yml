@@ -31,9 +31,9 @@ jobs:
 
       - name: Create .env file
         run: |
-          echo "REACT_APP_KAKAO_CLIENT_ID = ${{secrets.REACT_APP_KAKAO_CLIENT_ID}}" >> .env
-          echo "REACT_APP_KAKAO_REDIRECT_URI = ${{secrets.REACT_APP_KAKAO_REDIRECT_URI}}" >> .env
-          echo "REACT_APP_BACKEND_URL = ${{secrets.REACT_APP_BACKEND_URL}}" >> .env
+          echo "REACT_APP_KAKAO_CLIENT_ID=${{ secrets.REACT_APP_KAKAO_CLIENT_ID }}" >> .env
+          echo "REACT_APP_KAKAO_REDIRECT_URI=${{ secrets.REACT_APP_KAKAO_REDIRECT_URI }}" >> .env
+          echo "REACT_APP_BACKEND_URL=${{ secrets.REACT_APP_BACKEND_URL }}" >> .env
 
       - name: Build React app
         run: npm run build
