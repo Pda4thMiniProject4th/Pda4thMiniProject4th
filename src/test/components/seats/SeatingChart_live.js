@@ -27,7 +27,7 @@ const SeatingChart_live = ({ countData, userId, order }) => {
     };
 
     fetchCount();
-  }, []);
+  }, [order]);
 
   useEffect(() => {
     initializeSeating(countData.frontCount, countData.backCount);

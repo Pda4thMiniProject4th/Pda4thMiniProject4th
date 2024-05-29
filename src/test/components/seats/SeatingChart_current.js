@@ -19,7 +19,7 @@ const SeatingChart_current = ({ userId, order }) => {
     };
 
     fetchUserNames();
-  }, []);
+  }, [order]);
 
   const seats = Array.from({ length: 48 }, (_, index) => ({
     seatNumber: index + 1,

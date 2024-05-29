@@ -27,7 +27,7 @@ function Notice({ order }) {
     };
 
     fetchRearrangeAt();
-  }, []);
+  }, [order]);
 
   return message ? (
     <div className="notice-box">
