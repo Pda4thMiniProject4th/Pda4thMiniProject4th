@@ -54,6 +54,17 @@ export default function OrderPage() {
             }
           } else {
             //로그아웃 및 시작페이지로
+            axios
+              .post(`/auth/logout`, {
+                userId,
+              })
+              .then((response) => {
+                console.log("로그아웃 성공");
+              })
+              .catch((error) => {
+                console.log("로그아웃 페이지에 접근 불가 : ", error);
+              });
+
             navigate("/login");
           }
         })

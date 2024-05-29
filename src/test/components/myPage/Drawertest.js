@@ -7,8 +7,11 @@ import { Navbar } from "react-bootstrap";
 import logo from "./logo.svg";
 import "./Mypage.css";
 import "./nav.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Drawertest({ userId, profile }) {
+export default function Drawertest({ userId }) {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState("");
   const [userprofile, setUserProfile] = useState("");
@@ -43,6 +46,21 @@ export default function Drawertest({ userId, profile }) {
     if (open) {
       fetchUserInfo();
     }
+  };
+
+  const handleLogout = () => {
+    axios
+      .post(`/auth/logout`, {
+        userId,
+      })
+      .then((response) => {
+        console.log("로그아웃 완료");
+        localStorage.removeItem("token");
+        if (response.data.result) navigate("/login");
+      })
+      .catch((error) => {
+        console.log("로그아웃 실패 : ", error);
+      });
   };
 
   return (
@@ -81,7 +99,8 @@ export default function Drawertest({ userId, profile }) {
               </div>
             </div>
             <div className="logout">
-              <p>로그아웃</p>
+              {/*<p>로그아웃</p>*/}
+              <button onClick={handleLogout}>로그아웃</button>
             </div>
           </div>
         </Drawer>
