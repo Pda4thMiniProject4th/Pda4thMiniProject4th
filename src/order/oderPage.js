@@ -29,16 +29,19 @@ export default function OrderPage() {
 
           const result = response.data.result;
           const userId = response.data.userId;
+          const userAdmin = response.data.userAdmin;
+
           console.log(result);
           if (result) {
             //토큰 발급 및 메인 페이지로
-            if (userId == 2) {
+            if (userAdmin) {
               navigate("/adminpage");
             } else {
               navigate("/mainpage", { state: { userId: userId } });
             }
           } else {
             //로그아웃 및 시작페이지로
+            navigate("/login");
           }
         })
         .catch((error) => {
