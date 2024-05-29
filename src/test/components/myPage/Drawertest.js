@@ -3,11 +3,12 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { Navbar } from "react-bootstrap";
-import icon from "./icon.svg";
+// import icon from "./icon.svg";
+import logo from "./logo.svg";
 import "./Mypage.css";
 import "./nav.css";
 
-export default function Drawertest({ userId }) {
+export default function Drawertest({ userId, profile }) {
   const [isOpen, setIsOpen] = useState(false);
   const [userName, setUserName] = useState("");
   const [userprofile, setUserProfile] = useState("");
@@ -47,12 +48,15 @@ export default function Drawertest({ userId }) {
   return (
     <div>
       <Navbar className="navbar-expand-custom">
-        <Button
-          onClick={toggleDrawer(true)}
-          style={{ margin: "10px", fontFamily: "MangoDdobak-B" }}
-        >
-          My Page
-        </Button>
+        <div>
+          <img className="profile-img" src={profile} alt="profile"></img>
+          <Button
+            onClick={toggleDrawer(true)}
+            style={{ margin: "10px", fontFamily: "MangoDdobak-B" }}
+          >
+            My Page
+          </Button>
+        </div>
         <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
           {/* Drawer 내부에 들어갈 내용 */}
           <div
@@ -61,7 +65,10 @@ export default function Drawertest({ userId }) {
             onKeyDown={toggleDrawer(false)}
           >
             <div className="mypage">
-              <div style={{ display: "flex" }} className="info">
+              <div
+                style={{ display: "flex", alignItems: "center" }}
+                className="info"
+              >
                 <div className="profile">
                   <p>
                     <img src={userprofile} alt="프로필" />
@@ -79,7 +86,7 @@ export default function Drawertest({ userId }) {
           </div>
         </Drawer>
         <img
-          src={icon}
+          src={logo}
           style={{ width: "100px", height: "auto", margin: "10px" }}
           alt="Icon"
         />

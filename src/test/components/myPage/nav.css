@@ -1,3 +1,7 @@
+.navbar {
+  background-color: #f8fcfe;
+}
+
 .navbar-expand {
   justify-content: inherit !important; /* Bootstrap의 기본 스타일을 덮어쓰기 */
 }
@@ -9,6 +13,14 @@
   align-items: center;
   width: 100%;
   padding: 0 20px; /* 네브바의 좌우 여백을 위해 추가 */
-  background-color: #c1e5fa;
+  background-color: #f8fcfe;
   color: black;
+}
+
+.profile-img {
+  /* margin-left: 20px; */
+  width: 40px;
+  height: 40px;
+  border-radius: 20px 20px 20px 20px;
+  margin-left: 20px;
 }
