@@ -5,7 +5,7 @@ import SeatingRow from "./Row";
 
 const SeatingChart_current = ({ userId, order }) => {
   const [userNames, setUserNames] = useState([]);
-  const seatsPerRow = 6;
+  const seatsPerRow = 8;
 
   useEffect(() => {
     const fetchUserNames = async () => {
