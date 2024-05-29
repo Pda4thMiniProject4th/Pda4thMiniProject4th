@@ -1,0 +1,14 @@
+.navbar-expand {
+  justify-content: inherit !important; /* Bootstrap의 기본 스타일을 덮어쓰기 */
+}
+
+/* 또는 필요한 스타일을 직접 적용 */
+.navbar-expand-custom {
+  justify-content: space-between !important; /* 원하는 스타일을 적용 */
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px; /* 네브바의 좌우 여백을 위해 추가 */
+  background-color: #c1e5fa;
+  color: black;
+}

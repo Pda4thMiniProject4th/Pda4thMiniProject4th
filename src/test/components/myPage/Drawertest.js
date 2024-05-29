@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import axios from "axios";
+import { Navbar } from "react-bootstrap";
+import icon from "./icon.svg";
 import "./Mypage.css";
+import "./nav.css";
 
 export default function Drawertest({ userId }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,32 +45,41 @@ export default function Drawertest({ userId }) {
 
   return (
     <div>
-      <Button onClick={toggleDrawer(true)}>마이페이지</Button>
-      <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
-        {/* Drawer 내부에 들어갈 내용 */}
-        <div
-          role="presentation"
-          onClick={toggleDrawer(false)}
-          onKeyDown={toggleDrawer(false)}
-        >
-          <div className="mypage">
-            <div style={{ display: "flex" }} className="info">
-              <div className="profile">
-                <p>
-                  <img src={userprofile} alt="프로필" />
-                </p>
-              </div>
-              <div className="name-selected">
-                <p>이름: {userName}</p>
-                <p>선택한 자리: {seatOption}</p>
+      <Navbar className="navbar-expand-custom">
+        <Button onClick={toggleDrawer(true)} style={{ margin: "10px" }}>
+          마이페이지
+        </Button>
+        <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
+          {/* Drawer 내부에 들어갈 내용 */}
+          <div
+            role="presentation"
+            onClick={toggleDrawer(false)}
+            onKeyDown={toggleDrawer(false)}
+          >
+            <div className="mypage">
+              <div style={{ display: "flex" }} className="info">
+                <div className="profile">
+                  <p>
+                    <img src={userprofile} alt="프로필" />
+                  </p>
+                </div>
+                <div className="name-selected">
+                  <p>이름: {userName}</p>
+                  <p>선택한 자리: {seatOption}</p>
+                </div>
               </div>
             </div>
+            <div className="logout">
+              <p>로그아웃</p>
+            </div>
           </div>
-          <div className="logout">
-            <p>로그아웃</p>
-          </div>
-        </div>
-      </Drawer>
+        </Drawer>
+        <img
+          src={icon}
+          style={{ width: "100px", height: "auto", margin: "10px" }}
+          alt="Icon"
+        />
+      </Navbar>
     </div>
   );
 }
