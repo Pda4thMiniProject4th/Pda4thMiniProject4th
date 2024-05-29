@@ -3,10 +3,10 @@ import React from "react";
 
 const Seat2 = ({ size, occupied, isSelected }) => {
   const seatStyle = {
-    backgroundColor: occupied ? "grey" : "silver",
+    backgroundColor: occupied ? "gray" : "silver",
     border: "1px solid black",
-    height: "35px",
-    width: "100px",
+    height: "15px",
+    width: "15px",
     margin: "2px",
     display: "flex",
     alignItems: "center",

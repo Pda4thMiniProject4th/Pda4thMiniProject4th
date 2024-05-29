@@ -10,6 +10,7 @@ import Root from "./test/components/seats/Root";
 import Drawertest from "./test/components/myPage/Drawertest";
 import LoginPage from "./login/components/LoginPage";
 //import OrderPage from "./order/oderPage";
+import "./index.css";
 
 function App() {
   return (
@@ -19,8 +20,8 @@ function App() {
       <Drawertest />
       <Root />
       */}
-      <LoginPage />
-      {/*<Mainpage />*/}
+      {/* <LoginPage /> */}
+      <Mainpage />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
