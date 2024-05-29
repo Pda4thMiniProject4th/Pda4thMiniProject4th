@@ -42,7 +42,16 @@ export default function OrderPage() {
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column", gap: 30 }}>
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: 30,
+        minHeight: "50rem",
+      }}
+    >
       <h1>기수 선택 페이지 입니다.</h1>
       <div>
         <input
@@ -86,8 +95,9 @@ export default function OrderPage() {
         onClick={() => {
           sendInfo();
         }}
+        style={{ width: 150 }}
       >
-        전달
+        입력 내용 전달
       </button>
     </div>
   );
