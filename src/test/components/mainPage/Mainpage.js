@@ -12,13 +12,16 @@ export default function Mainpage() {
   const location = useLocation();
   const [userId, setUserId] = useState(location.state?.userId);
   const [order, setOrder] = useState(0);
+  const [profile, setProfile] = useState("");
 
   useEffect(() => {
     const fetchUserOrder = async () => {
       try {
         const response = await axios.get(`/users/mainpage/${userId}`);
-        const orders = response.data.orders;
+        // const orders = response.data.orders;
+        const { orders, profile } = response.data;
         setOrder(orders);
+        setProfile(profile);
       } catch (error) {
         console.error("Failed to fetch order:", error);
       }
@@ -31,7 +34,7 @@ export default function Mainpage() {
   return (
     <div className="home">
       {/* <div className="inline-components"> */}
-      <Drawertest userId={userId} /> {/*id*/}
+      <Drawertest userId={userId} profile={profile} /> {/*id*/}
       <div className="center-item">
         <Notice order={order} /> {/*기수*/}
       </div>
