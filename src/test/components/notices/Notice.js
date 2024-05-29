@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Notice.css";
+import { TbSpeakerphone } from "react-icons/tb";
 
 function Notice({ order }) {
   const [message, setMessage] = useState("");
@@ -30,7 +31,10 @@ function Notice({ order }) {
 
   return message ? (
     <div className="notice-box">
-      <p>{message}</p>
+      <div style={{ display: "flex" }}>
+        <TbSpeakerphone size={40} />
+        <p>{message}</p>
+      </div>
     </div>
   ) : (
     <></>

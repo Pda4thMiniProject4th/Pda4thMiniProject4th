@@ -8,12 +8,13 @@
   /* width: 900px; 박스의 너비를 300px로 설정 */
   /* height: 50px; */
   /* text-align: center; /* 텍스트를 가운데 정렬 */
-  /* background-color: #ffffff; 배경색을 연한 회색으로 설정 */
+  /* background-color: #a46767; */
 }
 
 .notice-box p {
+  padding-left: 20px;
   line-height: 50px; /*가운데 가운데*/
-  letter-spacing: 0.5rem; /*글자 사이 간격*/
-  font-size: 1.5rem; /*상대 크기*/
+  letter-spacing: 0; /*글자 사이 간격*/
+  font-size: 1.3rem; /*상대 크기*/
   font-weight: bold;
 }
