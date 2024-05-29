@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import SeatingRow2 from "./Row2";
 import axios from "axios";
+
 const SeatingChart_live = ({ countData, userId, order }) => {
   const rows = 6; // 총 8개의 행
   const seatsPerRow = 8; // 각 행당 6개의 좌석
-  // const seatingPlan = [];
   const [frontCount, setFrontCount] = useState(0);
   const [backCount, setBackCount] = useState(0);
   const [seatingPlan, setSeatingPlan] = useState([]);
@@ -13,7 +13,6 @@ const SeatingChart_live = ({ countData, userId, order }) => {
   useEffect(() => {
     const fetchCount = async () => {
       try {
-        //const response = await axios.get("/users/3"); //orders 3인 예시
         const response = await axios.get(`/users/${order}`);
         if (response.data) {
           const { frontCount, backCount } = response.data;
@@ -23,11 +22,11 @@ const SeatingChart_live = ({ countData, userId, order }) => {
         }
         console.log(response.data);
       } catch (error) {
-        console.error("Failed to fetch count:", error); // 에러 처리
+        console.error("Failed to fetch count:", error);
       }
     };
 
-    fetchCount(); // 함수 실행
+    fetchCount();
   }, []);
 
   useEffect(() => {
@@ -36,10 +35,9 @@ const SeatingChart_live = ({ countData, userId, order }) => {
 
   const initializeSeating = (frontCount, backCount) => {
     const newSeatingPlan = Array.from({ length: rows }, () =>
-      // 8*6
       Array.from({ length: seatsPerRow }, () => ({
-        occupied: false, //silver
-        selected: "", //빈좌석
+        occupied: false,
+        selected: false,
       }))
     );
 
@@ -49,7 +47,7 @@ const SeatingChart_live = ({ countData, userId, order }) => {
       const col = i % seatsPerRow;
       if (row < rows) {
         newSeatingPlan[row][col].occupied = true;
-        newSeatingPlan[row][col].selected = "X";
+        newSeatingPlan[row][col].selected = true;
       }
     }
 
@@ -59,7 +57,7 @@ const SeatingChart_live = ({ countData, userId, order }) => {
       const col = i % seatsPerRow;
       if (row >= 0) {
         newSeatingPlan[row][col].occupied = true;
-        newSeatingPlan[row][col].selected = "X";
+        newSeatingPlan[row][col].selected = true;
       }
     }
 
@@ -68,8 +66,8 @@ const SeatingChart_live = ({ countData, userId, order }) => {
 
   return (
     <Container>
-      {seatingPlan.map((row, index) => (
-        <SeatingRow2 key={index} seats={row} />
+      {seatingPlan.map((row, rowIndex) => (
+        <SeatingRow2 key={rowIndex} seats={row} />
       ))}
     </Container>
   );

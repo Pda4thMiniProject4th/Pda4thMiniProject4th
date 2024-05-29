@@ -10,7 +10,7 @@ import { useLocation } from "react-router-dom";
 export default function Mainpage() {
   const location = useLocation();
   const [userId, setUserId] = useState(location.state?.userId);
-  const [order, setOrder] = useState(3);
+  const [order, setOrder] = useState(4);
 
   console.log("resr", userId);
   return (

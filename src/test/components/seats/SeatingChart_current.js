@@ -23,7 +23,7 @@ const SeatingChart_current = ({ userId, order }) => {
 
   const seats = Array.from({ length: 48 }, (_, index) => ({
     seatNumber: index + 1,
-    userName: userNames[index + 1] || "Empty",
+    userName: userNames[index + 1] || "",
   }));
 
   const seatingPlan = [];

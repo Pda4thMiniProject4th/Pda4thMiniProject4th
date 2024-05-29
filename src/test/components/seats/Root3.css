@@ -30,8 +30,8 @@
 }
 
 .current-title {
-  margin-top: px;
-  margin-bottom: 20px; /*원래 70px*/
+  margin-top: 10px;
+  margin-bottom: 10px; /*원래 70px*/
 }
 
 .live-title {
@@ -42,7 +42,8 @@
   justify-content: center; /*양옆*/
   /* align-items: center; 위아래
   border-radius: 10px 10px 10px 10px;  */
-  margin-top: 0px;
+  align-items: center;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 
@@ -71,17 +72,17 @@
   justify-content: center; /* 가로 방향 중앙 정렬 */
   align-items: center; /* 세로 방향 중앙 정렬 */
   width: 100%;
+  margin: 10px;
 }
 
 .current-seat-color {
   background-color: #cde8e5;
-  width: 1200px;
-  height: 300px;
+  width: 1000px;
+  height: 350px;
   border-radius: 10px 10px 10px 10px;
   display: flex;
-  justify-content: center; /* 가로 방향으로 중앙 정렬 */
-  align-items: center; /* 세로 방향으로 중앙 정렬 */
-  margin: auto; /* 이 부분은 상위 컨테이너에서도 중앙 정렬*/
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 .live-seat-color .row {

@@ -11,6 +11,7 @@ const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    borderRadius: "5px",
   };
 
   return (

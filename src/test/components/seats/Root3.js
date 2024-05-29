@@ -10,13 +10,17 @@ export default function Root3({ userId, order }) {
     <div className="seat-current-live">
       <div className="live-set">
         <div style={{ display: "flex" }} className="live-title">
-          <h4>실시간 자리 현황</h4>
-          <SelectButton
-            onDataFetched={setCountData}
-            userId={userId}
-            order={order}
-          />{" "}
-          {/*id, 기수*/}
+          <div>
+            <h4 style={{ textAlign: "center" }}>실시간 자리 현황</h4>
+          </div>
+          <div>
+            <SelectButton
+              onDataFetched={setCountData}
+              userId={userId}
+              order={order}
+            />{" "}
+            {/*id, 기수*/}
+          </div>
         </div>
         <div className="live-seat">
           <div className="live-seat-color">
