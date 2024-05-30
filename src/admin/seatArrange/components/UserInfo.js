@@ -11,7 +11,7 @@ export default function UserInfo({ orders, setIsClicked, setMessage }) {
     const load = async () => {
       const getUser = await axios.get(`users/orders/${orders}`);
       setUsers(getUser.data);
-      console.log(getUser.data);
+      console.log(users);
     };
     load();
   }, [orders]);
@@ -31,6 +31,7 @@ export default function UserInfo({ orders, setIsClicked, setMessage }) {
         {users.map((elem, index) => {
           return (
             <Reason
+              key={elem.id + index * 100}
               elem={elem}
               index={index}
               setIsClicked={setIsClicked}

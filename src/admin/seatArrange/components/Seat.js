@@ -21,9 +21,12 @@ const Seat = ({
     prohibits.includes(seatNumber) ? true : false
   );
   const seatStyle = {
-    backgroundColor: isClicked ? "black" : occupied ? "gray" : "silver",
-    color: isClicked ? "white" : "black",
-    border: "1px solid black",
+    backgroundColor: isClicked
+      ? "black"
+      : occupied
+      ? "rgb(77, 134, 156)"
+      : "silver",
+    color: "white",
     borderRadius: "5px",
     height: "35px",
     width: "100px",

@@ -4,10 +4,36 @@ import Button from "react-bootstrap/Button";
 import "../css/AdminSeatArrange.css";
 import axios from "axios";
 import AdminSeatingChart from "./AdminSeatingChart";
+import { captureAdminSeatingChart } from "../../CaptureImg";
+import Screen from "../../../test/components/seats/Screen";
 
-export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
+export default function AdminSeatArrange({
+  orders,
+  setOrders,
+  meta,
+  setMeta,
+  setMessage,
+  message,
+  setIsClicked,
+  isClicked,
+}) {
   const [max_seat, setMaxSeat] = useState(48);
   const [userNames, setUserNames] = useState({}); // 사용자 이름을 저장할 객체
+  const [arrangeClicked, setArrangeClicked] = useState(false);
+
+  useEffect(() => {
+    localStorage.setItem("orders", orders);
+  }, [orders]);
+  useEffect(() => {
+    let timer;
+    if (arrangeClicked) {
+      timer = setTimeout(() => {
+        setArrangeClicked(false);
+        captureAdminSeatingChart();
+      }, 2000);
+    }
+    return () => clearTimeout(timer); // Cleanup function clears the timer
+  }, [arrangeClicked]);
 
   return (
     <Container className="adminSeatArrange">
@@ -35,8 +61,10 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
                   acc[e.seatNumber] = e.userName;
                   return acc;
                 }, {});
-                console.log("fdd", newName);
                 setUserNames(newName);
+                setMessage("자리 배치가 완료되었습니다");
+                setIsClicked(true);
+                setArrangeClicked(true);
                 console.log(answer);
               } catch (err) {
                 console.log(err);
@@ -56,7 +84,15 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
         }}
       >
         <Col className="d-flex justify-content-center">
-          <div>
+          <div className="adminSeatingChart">
+            <div
+              style={{
+                margin: "auto",
+                width: "842px",
+              }}
+            >
+              <Screen></Screen>
+            </div>
             <AdminSeatingChart
               key={orders}
               meta={meta}
