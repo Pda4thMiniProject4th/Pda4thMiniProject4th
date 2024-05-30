@@ -4,17 +4,25 @@ import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import "../css/AdminNavbar.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function AdminNavbar({ orders, setOrders }) {
+  const navigate = useNavigate();
   return (
     <div>
       <Navbar>
         <Container>
           <Nav className="me-auto">
-            <Nav.Link className="navLink" href="/">
+            <Nav.Link
+              className="navLink"
+              onClick={() => navigate("/seatarrangepage")}
+            >
               자리 배치
             </Nav.Link>
-            <Nav.Link className="navLink" href="/">
+            <Nav.Link
+              className="navLink"
+              onClick={() => navigate("/usermanagepage")}
+            >
               유저 관리
             </Nav.Link>
           </Nav>
