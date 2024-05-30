@@ -60,7 +60,7 @@ const SelectButton = ({ onDataFetched, userId, order }) => {
         <option value={-2}>뒷자리</option>
       </Form.Select>
       <Button variant="info" onClick={fetchUserInfo}>
-        확인
+        확정
       </Button>{" "}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
@@ -77,7 +77,7 @@ const SelectButton = ({ onDataFetched, userId, order }) => {
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={() => setShowModal(false)}>
-            확인
+            확정
           </Button>
         </Modal.Footer>
       </Modal>
