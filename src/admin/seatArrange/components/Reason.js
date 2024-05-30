@@ -36,7 +36,7 @@ export default function Reason({
       return;
     }
     load();
-  }, [elem.name, orders, seatOption]);
+  }, [elem.name, orders, seatOption, elem.seat_option]);
   const reasonClick = (isChecked, elem) => {
     console.log("dev");
 
@@ -50,9 +50,11 @@ export default function Reason({
 
         if (isChecked) {
           setMessage("승인되었습니다.");
+          elem.seat_option = -1;
           setSeatOption(-1);
         } else {
           setMessage("거절되었습니다.");
+          elem.seat_option = 0;
           setSeatOption(0);
         }
         elem.reason = "-";
