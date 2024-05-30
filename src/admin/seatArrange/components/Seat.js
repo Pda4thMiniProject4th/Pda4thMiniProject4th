@@ -24,6 +24,7 @@ const Seat = ({
     backgroundColor: isClicked ? "black" : occupied ? "gray" : "silver",
     color: isClicked ? "white" : "black",
     border: "1px solid black",
+    borderRadius: "5px",
     height: "35px",
     width: "100px",
     margin: "2px",
