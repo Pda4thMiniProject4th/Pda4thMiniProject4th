@@ -48,6 +48,11 @@ export default function Drawertest({ userId, profile }) {
   return (
     <div>
       <Navbar className="navbar-expand-custom main-nav">
+        <img
+          src={logo}
+          style={{ width: "100px", height: "auto", margin: "10px" }}
+          alt="Icon"
+        />
         <div>
           <img className="profile-img" src={profile} alt="profile"></img>
           <Button
@@ -57,7 +62,7 @@ export default function Drawertest({ userId, profile }) {
             My Page
           </Button>
         </div>
-        <Drawer anchor="left" open={isOpen} onClose={toggleDrawer(false)}>
+        <Drawer anchor="right" open={isOpen} onClose={toggleDrawer(false)}>
           {/* Drawer 내부에 들어갈 내용 */}
           <div
             role="presentation"
@@ -85,11 +90,6 @@ export default function Drawertest({ userId, profile }) {
             </div>
           </div>
         </Drawer>
-        <img
-          src={logo}
-          style={{ width: "100px", height: "auto", margin: "10px" }}
-          alt="Icon"
-        />
       </Navbar>
     </div>
   );
