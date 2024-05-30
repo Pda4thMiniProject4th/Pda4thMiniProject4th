@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -7,27 +7,35 @@ const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${proc
 const Login = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  //const [result, setResult] = useState();
+  //const [userId, setUserId] = useState();
 
-  let result = false;
-  let userId = -100;
+  const handleLogin = async () => {
+    const token = localStorage.getItem("token");
 
-  axios
-    .post(`/verifytoken`, {
-      token: localStorage.getItem("token"),
-    })
-    .then((response) => {
-      result = response.data.result;
-      if (result) {
-        //토큰이 유효할 경우
-        userId = response.data.userId;
-        console.log("jwt 토큰이 유효함! ", userId);
-      }
-    })
-    .catch((error) => {
-      console.error("토큰 유효 인증 실패: ", error);
-    });
+    let userId = -100;
+    let result = false;
 
-  const handleLogin = () => {
+    console.log("jwt token is ", token);
+
+    if (token) {
+      console.log("token 존재");
+      await axios
+        .post(`/verifytoken`, {
+          token: token,
+        })
+        .then((response) => {
+          result = response.data.result;
+          userId = response.data.userId;
+
+          console.log("result 반화값은 ", result);
+          console.log("jwt 토큰이 유효함! ", userId);
+        })
+        .catch((error) => {
+          console.error("토큰 유효 인증 실패: ", error);
+        });
+    }
+
     if (result) {
       navigate("/mainpage", { state: { userId: userId } });
     } else {

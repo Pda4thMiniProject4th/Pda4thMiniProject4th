@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { grey } from "@mui/material/colors";
 import { useLocation, useNavigate } from "react-router-dom";
+import Button from "react-bootstrap/Button";
 
 export default function OrderPage() {
   const location = useLocation();
@@ -54,6 +55,17 @@ export default function OrderPage() {
             }
           } else {
             //로그아웃 및 시작페이지로
+            axios
+              .post(`/auth/logout`, {
+                userId,
+              })
+              .then((response) => {
+                console.log("로그아웃 성공");
+              })
+              .catch((error) => {
+                console.log("로그아웃 페이지에 접근 불가 : ", error);
+              });
+
             navigate("/login");
           }
         })
@@ -76,53 +88,92 @@ export default function OrderPage() {
         minHeight: "50rem",
       }}
     >
-      <h1>기수 선택 페이지 입니다.</h1>
-      <div>
-        <input
-          style={{ width: 100 }}
-          placeholder={`${nickname}`}
-          value={name}
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <button
-          onClick={() => {
-            const newInfo = [...info];
-            newInfo[0] = name;
-            setInfo(newInfo);
-          }}
-        >
-          입력완료
-        </button>
-        <p>실명이 아니라면 성과 이름을 작성해주세요.</p>
-        <p style={{ color: "gray" }}>입력 후 완료 버튼 꼭 눌러주세요!</p>
-      </div>
-
-      <div style={{ display: "flex", gap: 50 }}>
-        <button
-          onClick={() => {
-            handleOrder(3);
-          }}
-        >
-          3기
-        </button>
-        <button
-          onClick={() => {
-            handleOrder(4);
-          }}
-        >
-          4기
-        </button>
-      </div>
-      <button
-        onClick={() => {
-          sendInfo();
+      <h1 style={{ padding: 50 }}>정보 입력 페이지 입니다👋🏻</h1>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: 30,
         }}
-        style={{ width: 150 }}
       >
-        입력 내용 전달
-      </button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            gap: 10,
+          }}
+        >
+          <div>
+            <h3>실명을 입력해주세요</h3>
+            <br />
+            <input
+              style={{ width: 100, height: 35 }}
+              placeholder={`${nickname}`}
+              value={name}
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
+            <Button
+              variant="outline-info"
+              onClick={() => {
+                const newInfo = [...info];
+                newInfo[0] = name;
+                setInfo(newInfo);
+              }}
+            >
+              입력완료
+            </Button>{" "}
+          </div>
+
+          <p style={{ color: "gray", textAlign: "center" }}>
+            실명이 아니라면 성과 이름을 작성해주세요.
+            <br />
+            입력 후 완료 버튼 꼭 눌러주세요!
+          </p>
+        </div>
+
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: 20,
+            alignItems: "center",
+          }}
+        >
+          <h4>기수를 선택해주세요</h4>
+          <div style={{ display: "flex", gap: 30 }}>
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                handleOrder(3);
+              }}
+            >
+              3기
+            </Button>{" "}
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                handleOrder(4);
+              }}
+            >
+              4기
+            </Button>{" "}
+          </div>
+          <br />
+          <Button
+            variant="outline-primary"
+            onClick={() => {
+              sendInfo();
+            }}
+            style={{ width: 150 }}
+          >
+            입력 내용 전달
+          </Button>
+        </div>
+      </div>
     </div>
   );
 }
