@@ -12,49 +12,43 @@ export default function AdminSeatingChart({
   setUserNames,
   userNames,
 }) {
-  const rows = 8; // 총 8개의 행
-  const seatsPerRow = 6; // 각 행당 6개의 좌석
+  const seatsPerRow = 8;
 
   useEffect(() => {
-    // 서버에서 사용자 이름을 가져오는 함수
     const fetchUserNames = async () => {
       try {
-        console.log({ orders });
-        const response = await axios.get(`/seats/current/${orders}`); // API 경로 수정 필요
-        console.log(response.data);
-        setUserNames(response.data); // 응답 데이터를 상태로 저장
+        const response = await axios.get(`/seats/current/${orders}`);
+        setUserNames(response.data);
       } catch (error) {
-        console.error("Failed to fetch user names:", error); // 에러 처리
+        console.error("Failed to fetch user names:", error);
       }
     };
 
-    fetchUserNames(); // 함수 실행
+    fetchUserNames();
   }, [orders]);
 
-  console.log(userNames);
   const seats = Array.from({ length: 48 }, (_, index) => ({
-    seatNumber: index,
-    userName: userNames[index] || "Empty",
+    seatNumber: index + 1,
+    userName: userNames[index + 1] || "",
   }));
 
   const seatingPlan = [];
-  for (let i = 1; i < seats.length; i += seatsPerRow) {
+  for (let i = 0; i < seats.length; i += seatsPerRow) {
     seatingPlan.push(seats.slice(i, i + seatsPerRow));
   }
+  console.log("row", seatingPlan);
 
   return (
     <Container>
-      {seatingPlan.map((row, index) => {
-        return (
-          <SeatingRow
-            key={row[0].seatNumber}
-            seats={row}
-            meta={meta}
-            setMeta={setMeta}
-            orders={orders}
-          />
-        );
-      })}
+      {seatingPlan.map((row, index) => (
+        <SeatingRow
+          key={index}
+          seats={row}
+          meta={meta}
+          setMeta={setMeta}
+          orders={orders}
+        />
+      ))}
     </Container>
   );
 }
