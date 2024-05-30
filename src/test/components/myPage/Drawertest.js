@@ -3,6 +3,7 @@ import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button";
 import axios from "axios";
 import { Navbar } from "react-bootstrap";
+import Btn from "react-bootstrap/Button";
 // import icon from "./icon.svg";
 import logo from "./logo.svg";
 import "./Mypage.css";
@@ -112,7 +113,9 @@ export default function Drawertest({ userId, profile }) {
             </div>
             <div className="logout">
               {/*<p>로그아웃</p>*/}
-              <button onClick={handleLogout}>로그아웃</button>
+              <Btn size="sm" variant="outline-primary" onClick={handleLogout}>
+                로그아웃
+              </Btn>
             </div>
           </div>
         </Drawer>
