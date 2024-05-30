@@ -164,6 +164,14 @@ export default function OrderPage() {
             >
               4기
             </Button>{" "}
+            <Button
+              variant="outline-success"
+              onClick={() => {
+                handleOrder(0);
+              }}
+            >
+              관리자
+            </Button>{" "}
           </div>
           <br />
           <Button
