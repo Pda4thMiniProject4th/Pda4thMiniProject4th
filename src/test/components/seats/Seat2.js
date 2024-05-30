@@ -7,7 +7,11 @@ const Seat2 = ({ size, occupied, isSelected }) => {
   }`;
 
   return (
-    <div className={seatClassName} xs={size}>
+    <div
+      className={seatClassName}
+      xs={size}
+      style={{ border: "1px solid black" }}
+    >
       {isSelected}
     </div>
   );

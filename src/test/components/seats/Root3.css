@@ -115,3 +115,9 @@
   width: 900px;
   margin: auto;
 }
+
+button.custom-button {
+  background-color: gray;
+  border-color: #ffff;
+  /* 다른 스타일들 */
+}

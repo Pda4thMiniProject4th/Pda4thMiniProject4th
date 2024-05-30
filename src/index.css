@@ -9,8 +9,12 @@ body {
   font-family: "MangoDdobak-B" !important;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* color:#ffff; */
 }
 
 code {
   font-family: "MangoDdobak-B";
+}
+.seat {
+  cursor: pointer;
 }

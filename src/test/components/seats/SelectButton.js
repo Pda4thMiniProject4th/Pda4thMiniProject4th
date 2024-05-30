@@ -1,6 +1,7 @@
 import axios from "axios";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import "./Root3.css";
 
 const SelectButton = ({ onDataFetched, userId, order }) => {
   const [selectedOption, setSelectedOption] = useState(0);
@@ -59,7 +60,7 @@ const SelectButton = ({ onDataFetched, userId, order }) => {
         <option value={1}>앞자리</option>
         <option value={-2}>뒷자리</option>
       </Form.Select>
-      <Button variant="info" onClick={fetchUserInfo}>
+      <Button className="custom-button" onClick={fetchUserInfo}>
         확정
       </Button>{" "}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -76,7 +77,7 @@ const SelectButton = ({ onDataFetched, userId, order }) => {
           />
         </Modal.Body>
         <Modal.Footer>
-          <Button variant="secondary" onClick={() => setShowModal(false)}>
+          <Button className="custom-button" onClick={() => setShowModal(false)}>
             확정
           </Button>
         </Modal.Footer>

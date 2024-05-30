@@ -3,7 +3,7 @@ import "./Seat.css";
 
 const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
   const seatStyle = {
-    backgroundColor: occupied ? "gray" : "silver",
+    backgroundColor: occupied ? "#4D869C" : "silver",
     // border: "1px solid black",
     height: "35px",
     width: "100px",
@@ -13,14 +13,16 @@ const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
     justifyContent: "center",
     borderRadius: "5px",
   };
-
+  const nameStyle = {
+    color: "#ffff",
+  };
   return (
     <div
       style={seatStyle}
       xs={size}
       className={`seat ${isCurrentUser && "active"}`}
     >
-      {name}
+      <span style={nameStyle}>{name}</span>
     </div>
   );
 };

@@ -76,7 +76,11 @@ export default function Drawertest({ userId, profile }) {
           <img className="profile-img" src={profile} alt="profile"></img>
           <Button
             onClick={toggleDrawer(true)}
-            style={{ margin: "10px", fontFamily: "MangoDdobak-B" }}
+            style={{
+              margin: "10px",
+              fontFamily: "MangoDdobak-B",
+              color: "#ffff",
+            }}
           >
             My Page
           </Button>
@@ -91,7 +95,7 @@ export default function Drawertest({ userId, profile }) {
             <div className="mypage">
               <div
                 style={{ display: "flex", alignItems: "center" }}
-                className="info"
+                className="info-drawer"
               >
                 <div className="profile">
                   <p>
