@@ -48,7 +48,7 @@ export default function OrderPage() {
               });
 
             if (userAdmin) {
-              navigate("/adminpage");
+              navigate("/seatarrangepage");
             } else {
               navigate("/mainpage", { state: { userId: userId } });
             }

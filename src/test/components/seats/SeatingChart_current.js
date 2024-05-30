@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { Container } from "react-bootstrap";
 import SeatingRow from "./Row";
-
+import Screen from "./Screen";
 const SeatingChart_current = ({ userId, order }) => {
   const [userNames, setUserNames] = useState([]);
 
@@ -34,6 +34,9 @@ const SeatingChart_current = ({ userId, order }) => {
 
   return (
     <Container>
+      <div className="screenstyle" style={{ margin: "auto" }}>
+        <Screen />
+      </div>
       {seatingPlan.map((row, index) => (
         <SeatingRow key={index} order={order} seats={row} userId={userId} />
       ))}

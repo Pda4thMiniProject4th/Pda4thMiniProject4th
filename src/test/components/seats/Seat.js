@@ -4,7 +4,7 @@ import "./Seat.css";
 const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
   const seatStyle = {
     backgroundColor: occupied ? "gray" : "silver",
-    border: "1px solid black",
+    // border: "1px solid black",
     height: "35px",
     width: "100px",
     margin: "2px",

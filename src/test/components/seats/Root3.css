@@ -66,7 +66,7 @@
 }
 
 .live-seat-color {
-  background-color: #cde8e5;
+  background-color: #e8f3f1;
   width: 600px;
   height: 200px;
   border-radius: 10px 10px 10px 10px;
@@ -95,9 +95,20 @@
   margin-bottom: 20px;
 }
 
+.live-seat-color .screen2style {
+  margin: auto;
+  width: 146px;
+  /* align-items: center; */
+}
 .live-seat-color .row {
   width: 240.8px;
   margin: auto;
+}
+
+.current-seat-color .screenstyle {
+  margin: auto;
+  width: 842px;
+  /* align-items: center; */
 }
 
 .current-seat-color .row {
