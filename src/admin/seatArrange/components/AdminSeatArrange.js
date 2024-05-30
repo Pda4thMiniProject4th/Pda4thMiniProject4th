@@ -51,7 +51,7 @@ export default function AdminSeatArrange({ orders, setOrders, meta, setMeta }) {
 
       <Row
         style={{
-          backgroundColor: "#feebfe",
+          backgroundColor: "#cde8e5",
           padding: "1rem",
         }}
       >
