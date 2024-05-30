@@ -60,13 +60,16 @@ export default function OrderPage() {
                 userId,
               })
               .then((response) => {
-                console.log("로그아웃 성공");
+                console.log("로그아웃 완료");
+                localStorage.removeItem("token");
+
+                if (response.data.logouturl) {
+                  window.location.href = response.data.logouturl;
+                }
               })
               .catch((error) => {
-                console.log("로그아웃 페이지에 접근 불가 : ", error);
+                console.log("로그아웃 실패 : ", error);
               });
-
-            navigate("/login");
           }
         })
         .catch((error) => {
