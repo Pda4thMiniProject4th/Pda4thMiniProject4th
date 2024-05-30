@@ -47,7 +47,7 @@ export default function Drawertest({ userId, profile }) {
 
   return (
     <div>
-      <Navbar className="navbar-expand-custom">
+      <Navbar className="navbar-expand-custom main-nav">
         <div>
           <img className="profile-img" src={profile} alt="profile"></img>
           <Button

@@ -1,7 +1,3 @@
-.navbar {
-  background-color: #f8fcfe;
-}
-
 .navbar-expand {
   justify-content: inherit !important; /* Bootstrap의 기본 스타일을 덮어쓰기 */
 }
@@ -13,7 +9,7 @@
   align-items: center;
   width: 100%;
   padding: 0 20px; /* 네브바의 좌우 여백을 위해 추가 */
-  background-color: #f8fcfe;
+  /* background-color: #f8fcfe; */
   color: black;
 }
 
@@ -23,4 +19,9 @@
   height: 40px;
   border-radius: 20px 20px 20px 20px;
   margin-left: 20px;
+}
+
+nav.main-nav {
+  background-color: #90a4ae;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
