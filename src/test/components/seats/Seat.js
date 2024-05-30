@@ -3,7 +3,7 @@ import "./Seat.css";
 
 const Seat = ({ size, occupied, name, isCurrentUser = false }) => {
   const seatStyle = {
-    backgroundColor: occupied ? "#4D869C" : "silver",
+    backgroundColor: isCurrentUser ? "#7AA2E3" : "#4D869C",
     // border: "1px solid black",
     height: "35px",
     width: "100px",
