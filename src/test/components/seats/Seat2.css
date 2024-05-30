@@ -1,7 +1,7 @@
 /* App.css */
 .seat {
   background-color: silver;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   height: 15px;
   width: 15px;
   margin: 1px;

@@ -3,15 +3,19 @@ import React from "react";
 
 const Screen = ({}) => {
   const screenStyle = {
-    backgroundColor: "gray",
+    backgroundColor: "#6d7679",
     // border: "1px solid black",
-    height: "8px",
+    height: "20px",
     width: "842px",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
     marginBottom: "15px",
-    borderRadius: "2px",
+    borderRadius: "6px",
+    padding: "4px",
+  };
+  const screenTextStyle = {
+    color: "#ffff",
   };
 
   return (
@@ -21,6 +25,7 @@ const Screen = ({}) => {
       //   className={`seat ${isCurrentUser && "active"}`}
     >
       {/* {name} */}
+      <span style={screenTextStyle}>스크린</span>
     </div>
   );
 };
