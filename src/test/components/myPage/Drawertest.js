@@ -9,7 +9,7 @@ import "./Mypage.css";
 import "./nav.css";
 import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Drawertest({ userId }) {
+export default function Drawertest({ userId, profile }) {
   const location = useLocation();
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
