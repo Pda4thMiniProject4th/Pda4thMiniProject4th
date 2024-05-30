@@ -1,17 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import CheckIcon from "@mui/icons-material/Check";
 import CloseIcon from "@mui/icons-material/Close";
 import { Col, Row, Form } from "react-bootstrap";
 import "../css/UserInfo.css";
 import axios from "axios";
 
-export default function Reason({ elem, index, setIsClicked, setMessage }) {
+export default function Reason({
+  elem,
+  index,
+  setIsClicked,
+  setMessage,
+  reRender,
+  setReRender,
+}) {
   const [hasIssue, setHasIssue] = useState(true);
   const [clickName, setClickName] = useState(false);
   const [name, setName] = useState(elem.name);
   const [orders, setOrders] = useState(elem.orders);
   const [seatOption, setSeatOption] = useState(elem.seat_option);
-
+  const [first, setFirst] = useState(false);
+  useEffect(() => {
+    const load = async () => {
+      const user = elem;
+      try {
+        await axios.put("/users/update", {
+          user,
+        });
+        setReRender(!reRender);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    if (!first) {
+      setFirst(true);
+      return;
+    }
+    load();
+  }, [elem.name, orders, seatOption]);
   const reasonClick = (isChecked, elem) => {
     console.log("dev");
 
@@ -62,12 +87,16 @@ export default function Reason({ elem, index, setIsClicked, setMessage }) {
           <input
             style={{ width: "5rem" }}
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
             onKeyDown={(e) => {
               if (e.key === "Enter") {
+                elem.name = e.target.value;
                 setClickName(false);
               }
             }}
+            autoFocus
           ></input>
         </Col>
       )}
@@ -75,6 +104,7 @@ export default function Reason({ elem, index, setIsClicked, setMessage }) {
         <Form.Select
           value={orders}
           onChange={(e) => {
+            elem.orders = Number(e.target.value);
             setOrders(Number(e.target.value));
           }}
         >
@@ -90,8 +120,8 @@ export default function Reason({ elem, index, setIsClicked, setMessage }) {
         <Form.Select
           value={seatOption}
           onChange={(e) => {
-            setSeatOption(Number(e.target.value));
             elem.seat_option = Number(e.target.value);
+            setSeatOption(Number(e.target.value));
           }}
         >
           <option value={-1} style={{ color: "blue" }}>

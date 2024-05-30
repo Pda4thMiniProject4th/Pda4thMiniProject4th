@@ -6,6 +6,7 @@ import Reason from "./Reason";
 
 export default function UserInfo({ orders, setIsClicked, setMessage }) {
   const [users, setUsers] = useState([]);
+  const [reRender, setReRender] = useState(false);
 
   useEffect(() => {
     const load = async () => {
@@ -14,7 +15,7 @@ export default function UserInfo({ orders, setIsClicked, setMessage }) {
       console.log(users);
     };
     load();
-  }, [orders]);
+  }, [orders, reRender]);
 
   return (
     <Container className="info">
@@ -36,6 +37,8 @@ export default function UserInfo({ orders, setIsClicked, setMessage }) {
               index={index}
               setIsClicked={setIsClicked}
               setMessage={setMessage}
+              reRender={reRender}
+              setReRender={setReRender}
             ></Reason>
           );
         })}
