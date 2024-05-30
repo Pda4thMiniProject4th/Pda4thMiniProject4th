@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Container } from "react-bootstrap";
 import SeatingRow2 from "./Row2";
+import Screen2 from "./Screen2";
 import axios from "axios";
 
 const SeatingChart_live = ({ countData, userId, order }) => {
@@ -66,6 +67,9 @@ const SeatingChart_live = ({ countData, userId, order }) => {
 
   return (
     <Container>
+      <div className="screen2style" style={{ margin: "auto" }}>
+        <Screen2 />
+      </div>
       {seatingPlan.map((row, rowIndex) => (
         <SeatingRow2 key={rowIndex} seats={row} />
       ))}
