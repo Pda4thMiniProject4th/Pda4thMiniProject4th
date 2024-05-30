@@ -1,8 +1,9 @@
 .info {
-  background-color: #feebfe;
+  background-color: #cde8e5;
   height: 36rem;
   padding: 2rem;
   margin-top: 2rem;
+  border-radius: 10px;
   box-sizing: border-box;
 }
 
@@ -41,16 +42,16 @@
 }
 
 /* 스크롤바의 폭 너비 */
-::-webkit-scrollbar {
+.containerRow::-webkit-scrollbar {
   width: 10px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: rgb(173, 42, 68); /* 스크롤바 색상 */
+.containerRow::-webkit-scrollbar-thumb {
+  background: #11d0d4; /* 스크롤바 색상 */
   border-radius: 10px; /* 스크롤바 둥근 테두리 */
 }
 
-::-webkit-scrollbar-track {
+.containerRow::-webkit-scrollbar-track {
   background: rgba(220, 20, 60, 0.1); /*스크롤바 뒷 배경 색상*/
 }
 
