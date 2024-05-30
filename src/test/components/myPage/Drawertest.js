@@ -55,9 +55,11 @@ export default function Drawertest({ userId, profile }) {
       })
       .then((response) => {
         console.log("로그아웃 완료");
-        //localStorage.setItem("backup_token", localStorage.getItem("token"));
         localStorage.removeItem("token");
-        if (response.data.result) navigate("/login");
+
+        if (response.data.logouturl) {
+          window.location.href = response.data.logouturl;
+        }
       })
       .catch((error) => {
         console.log("로그아웃 실패 : ", error);
